@@ -23,6 +23,7 @@ export function LoginForm({
 
     setIsLoading(true);
     setError("");
+    
 
     try {
       const response = await fetch("http://localhost:5000/api/users/login", {
@@ -38,7 +39,7 @@ export function LoginForm({
       if (!response.ok) {
         throw new Error(data.message || "Erro ao fazer login");
       }
-
+     
       // Armazenar o token no localStorage para autenticação em futuras requisições
       localStorage.setItem("token", data.token); // Armazenando o token retornado
 
